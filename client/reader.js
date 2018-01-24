@@ -65,7 +65,7 @@ rl.on('line', (line) => {
     if (line.indexOf('Alpha:') > -1) {
     	message = line.match(/Alpha:(.*?)$/)[1].trim();
     	trimMessage = message.replace(/<[A-Za-z]{3}>/g,'');
-    } else if (line.indexOf('Function:') > -1) {
+    } else if (/Function:(.*?)Alpha:/.test(line)) {
       address = address + String.fromCharCode(65 + parseInt(line.match(/Function:(.*?)Alpha:/)[1].trim()));
     } else if (line.indexOf('Numeric:') > -1) {
         message = line.match(/Numeric:(.*?)$/)[1].trim();
