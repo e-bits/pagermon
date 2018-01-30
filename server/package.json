@@ -32,14 +32,16 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-localapikey-update": "^0.5.0",
+    "pmx": "latest",
+    "pushover-notifications": "latest",
     "serve-favicon": "~2.4.2",
     "socket.io": "^2.0.2",
     "sqlite3": "~3.1.8",
     "systemjs": "^0.20.13",
+    "telegram-bot-api": "^1.2.0",
     "underscore": "^1.8.3",
-    "zone.js": "^0.8.12",
-    "pmx": "latest",
-    "pushover-notifications": "latest"
+    "util": "^0.10.3",
+    "zone.js": "^0.8.12"
   },
   "repository": {
     "type": "git",

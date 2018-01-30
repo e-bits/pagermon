@@ -239,7 +239,34 @@
                 <span id="helpBlock" class="help-block">Sets the Application Sound</span>
               </div>
             </div>
-            
+
+            <h5>Telegram</h5>
+            <div class="form-group">
+              <label for="telegram.teleenable" class="col-xs-4 col-sm-3 control-label">Enable</label>
+              <div class="col-xs-8 col-sm-9">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="telegram.teleenable" ng-model="settings.telegram.teleenable">
+                    Enable or disable for selected alias's
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telegram.teleBOTAPIKEY" class="col-xs-4 col-sm-3 control-label">BOT API Key</label>
+              <div class="col-xs-8 col-sm-9">
+                <input type="text" class="form-control" name="telegram.teleBOTAPIKEY" ng-model="settings.telegram.teleBOTAPIKEY">
+                <span id="helpBlock" class="help-block">Telegram Bot API Key. <a href="https://core.telegram.org/bots#3-how-do-i-create-a-bot" target="_blank">How do i create a Bot?</a></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telegram.teleChatId" class="col-xs-4 col-sm-3 control-label">Caht ID</label>
+              <div class="col-xs-8 col-sm-9">
+                <input type="text" class="form-control" name="telegram.teleChatId" ng-model="settings.telegram.teleChatId">
+                <span id="helpBlock" class="help-block">Enter your Telegram ChatID.</span>
+              </div>
+            </div>
+
             <h5>Auth</h5>
             <div class="form-group">
             <fieldset disabled>

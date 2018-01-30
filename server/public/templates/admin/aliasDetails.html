@@ -93,14 +93,14 @@
             </div>
 
             <div class="form-group" ng-class="{'has-warning':alias.push == 1}">
-              <label for="alias.push" class="col-xs-4 col-sm-3 control-label">Pushover</label>
+              <label for="alias.push" class="col-xs-4 col-sm-3 control-label">Push</label>
               <div class="col-xs-8 col-sm-9">
                 <div class="checkbox">
                   <label>
                     <input type="checkbox" name="alias.push" ng-model="alias.push" ng-true-value="1" ng-false-value="0">
-                    Enable sending via Pushover
+                    Enable sending via Push 
                   </label>
-                  <span id="helpBlock" class="help-block">If checked, messages matching this alias will be sent via pushover</span>
+                  <span id="helpBlock" class="help-block">If checked, messages matching this alias will be proccesed by configured Push Services.</span>
                 </div>
               </div>
             </div>

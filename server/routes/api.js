@@ -6,6 +6,8 @@ var bcrypt = require('bcryptjs');
 var JsSearch = require('js-search');
 var passport = require('passport');
 var push = require('pushover-notifications');
+var telegram = require('telegram-bot-api');
+var util = require('util');
 require('../config/passport')(passport); // pass passport for configuration
 
 var nconf = require('nconf');
@@ -445,6 +447,9 @@ router.post('/messages', function(req, res, next) {
         var pushgroup = nconf.get('pushover:pushgroup');
         var pushSound = nconf.get('pushover:pushSound');
         var pushPriority = nconf.get('pushover:pushPriority');
+        var teleenable = nconf.get('telegram:teleenable');
+        var teleBOTAPIKEY= nconf.get('telegram:teleBOTAPIKEY');
+        var teleChatId = nconf.get('telegram:teleChatId');
 
         db.serialize(() => {
             //db.run("UPDATE tbl SET name = ? WHERE id = ?", [ "bar", 2 ]);
@@ -561,6 +566,39 @@ router.post('/messages', function(req, res, next) {
                                                         //do nothing bruh
                                                     };
 
+                                                }
+                                                
+                                                //check config to see if telegram push is gloably enabled
+                                                if (teleenable == true) {
+                                                    //check the alais to see if push is enabled for it
+                                                    if (pushonoff == 1) {
+                                                        var markdownAlarmText = `*Pagermon Alert*\n` + 
+                                                        `Agency: ${row.agency}\n` +
+                                                        `Alias: ${row.alias}\n` +
+                                                        `Time: ${row.timestamp}\n` +
+                                                        `Message: ${row.message}`;
+
+                                                        var api = new telegram({
+                                                            token: teleBOTAPIKEY
+                                                        });
+                                                        
+                                                        api.sendMessage({
+                                                            chat_id: teleChatId,
+                                                            text: markdownAlarmText,
+                                                            parse_mode: "Markdown"
+                                                        })
+                                                        .then(function(data)
+                                                        {
+                                                            console.log(util.inspect(data, false, null));
+                                                        })
+                                                        .catch(function(err)
+                                                        {
+                                                            console.log(err);
+                                                        });
+                                                        
+                                                    }                                                                                                  
+                                                } else {
+                                                    //do nothing bruh
                                                 };
                                             }
                                         });

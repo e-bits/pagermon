@@ -50,5 +50,11 @@
     "pushgroup":   "",
     "pushSound": "pushover",
     "pushPriority": "0"
+  },
+  "telegram":{
+    "teleenable": false,
+    "teleBOTAPIKEY": "",
+    "teleChatId": ""
   }
+
 }
