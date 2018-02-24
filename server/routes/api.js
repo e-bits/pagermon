@@ -572,10 +572,9 @@ router.post('/messages', function(req, res, next) {
                                                 if (teleenable == true) {
                                                     //check the alais to see if push is enabled for it
                                                     if (pushonoff == 1) {
-                                                        var markdownAlarmText = `*Pagermon Alert*\n` + 
-                                                        `Agency: ${row.agency}\n` +
-                                                        `Alias: ${row.alias}\n` +
-                                                        `Time: ${row.timestamp}\n` +
+                                                        var alarmDateTime = new Date(row.timestamp);
+                                                        var markdownAlarmText = `*${row.agency} - ${row.alias}*\n` + 
+                                                        `Time: ${alarmDateTime.toString()}\n` +
                                                         `Message: ${row.message}`;
 
                                                         var api = new telegram({
