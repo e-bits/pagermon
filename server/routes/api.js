@@ -574,7 +574,7 @@ router.post('/messages', function(req, res, next) {
                                                     if (pushonoff == 1) {
                                                         var alarmDateTime = new Date(row.timestamp*1000);
                                                         var markdownAlarmText = `*${row.agency} - ${row.alias}*\n` + 
-                                                        `Time: ${alarmDateTime.toString()}\n` +
+                                                        `Time: ${alarmDateTime.toLocaleString('de-CH')}\n` +
                                                         `Message: ${row.message}`;
 
                                                         var api = new telegram({
