@@ -572,7 +572,7 @@ router.post('/messages', function(req, res, next) {
                                                 if (teleenable == true) {
                                                     //check the alais to see if push is enabled for it
                                                     if (pushonoff == 1) {
-                                                        var alarmDateTime = new Date(row.timestamp);
+                                                        var alarmDateTime = new Date(row.timestamp*1000);
                                                         var markdownAlarmText = `*${row.agency} - ${row.alias}*\n` + 
                                                         `Time: ${alarmDateTime.toString()}\n` +
                                                         `Message: ${row.message}`;
